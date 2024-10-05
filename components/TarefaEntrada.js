@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class TarefaEntrada extends Component {
   render() {
     return (
-      <div className="justify-content-center align-items-center border rounded p-3">
+      <div className="justify-content-center align-items-center">
         <div className="mb-3">
           <input type="text" className="form-control text-center p-3" id="entrada-tarefa" placeholder="Digite a descrição de uma nova tarefa" />
         </div>
