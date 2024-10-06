@@ -19,6 +19,7 @@ export default class App extends React.Component {
         }),
         () => {
           localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));
+          this.setState({});
         }
       );
     }
