@@ -25,13 +25,26 @@ export default class App extends React.Component {
     }
   }
 
+  onRemoverTarefa = (index) => {
+    this.setState(
+      (prevState) => {
+        const novasTarefas = prevState.tarefas.filter((_, i) => i !== index);
+        return { tarefas: novasTarefas };
+      },
+      () => {
+        localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));
+        this.setState({});
+      }
+    );
+  };
+
   render() {
     return (
       <div className="container mt-2">
         <div className="row justify-content-center">
           <div className="col-12 col-md-8">
             <TarefaEntrada onAdicionarTarefa={this.onAdicionarTarefa} />
-            <TarefaLista tarefas={this.state.tarefas} />
+            <TarefaLista tarefas={this.state.tarefas} onRemoverTarefa={this.onRemoverTarefa} />
           </div>
         </div>
       </div>
