@@ -8,7 +8,7 @@ import TarefaLista from './components/TarefaLista'
 export default class App extends React.Component {
 
   state = {
-    tarefas: []
+    tarefas: JSON.parse(localStorage.getItem("tarefas")) || []
   }
 
   onAdicionarTarefa = (termo) => {
