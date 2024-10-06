@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export default class TarefaLista extends Component {
   onRemoveTarefa = (index) => {
-    const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];    
-    tarefas.splice(index, 1);    
-    localStorage.setItem("tarefas", JSON.stringify(tarefas));    
+    const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    tarefas.splice(index, 1);
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
     this.setState({});
   };
 
@@ -18,13 +18,15 @@ export default class TarefaLista extends Component {
           tarefas.map((tarefa, index) => (
             <div className="row" key={index}>
               <div className="col-12">
-                <div className="flex-grow-2 border rounded mb-2 ms-4 me-4 ">
-                  <div class="row">
-                    <div class="col-sm-8 col-md-9">
+                <div className="flex-grow-2 border rounded mb-2 ms-4 me-4">
+                  <div className="row">
+                    <div className="col-sm-8 col-md-9">
                       <h4 className="text-center">{tarefa}</h4>
                     </div>
-                    <div class="col-sm-4 col-md-3">
-                      <button className="btn btn-danger w-25"  onClick={() => this.onRemoveTarefa(index)}>Excluir</button>
+                    <div className="col-sm-4 col-md-3 d-flex justify-content-end align-items-center">
+                      <button className="btn btn-danger" style={{ width: '100px' }} onClick={() => this.onRemoveTarefa(index)}>
+                        Excluir
+                      </button>
                     </div>
                   </div>
                 </div>
