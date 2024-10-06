@@ -8,15 +8,19 @@ import TarefaLista from './components/TarefaLista'
 export default class App extends React.Component {
 
   state = {
-    tarefas: [] 
+    tarefas: []
   }
-
 
   onAdicionarTarefa = (termo) => {
     if (termo) {
-      this.setState((prevState) => ({
-        tarefas: [...prevState.tarefas, termo]
-      }))
+      this.setState(
+        (prevState) => ({
+          tarefas: [...prevState.tarefas, termo]
+        }),
+        () => {
+          localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));
+        }
+      );
     }
   }
 
